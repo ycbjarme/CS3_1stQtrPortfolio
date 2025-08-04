@@ -11,3 +11,7 @@ While the speech showed progress, many remain unsure if these promises will be f
 
 ### 4. What 1 word/ phrase/ or sentence do you have for the Philippines after hearing SONA 2025?
 Don't have high expectations. 
+
+![Sona Image][def]
+
+[def]: https://media.assettype.com/sunstar%2F2025-07-28%2F63wzmwmg%2FMarcos-Sona-2025.jpg?rect=0%2C0%2C750%2C422&w=1024&auto=format%2Ccompress&fit=max
