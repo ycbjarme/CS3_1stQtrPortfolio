@@ -3,31 +3,58 @@
 <head>
   <title>Jarme Portfolio</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-</head>
-<body>
-  <section class="w3-container">
-   <h1>Links to Jarme's work</h1>
-   <nav>
-    <ul>
-      <li><a href="./public/Q1_1stGraded.html"> First Exercise </a> </li>
-    </ul>
-   </nav>
-  </section>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
   <style>
+    body {
+      background-color: rgb(47, 18, 85);
+      color: rgb(144, 111, 223);
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+    }
+
     .image {
       display: block;
-      margin: 50px auto; /* Center horizontally with top margin */
+      margin: 50px auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav li {
+      margin: 10px 0;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      color: #2F1255;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ae67f1;
     }
   </style>
 </head>
 <body>
-  <img src="https://images6.alphacoders.com/136/1364706.jpeg" alt="Girl in a jacket" width="600" height="400">
+  <section class="w3-container">
+    <h1>Links to Jarme's work</h1>
+    <nav>
+      <ul>
+        <li><a href="./public/Q1_1stGraded.html">First Exercise</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <img class="image" src="https://images6.alphacoders.com/136/1364706.jpeg" alt="Girl in a jacket" width="600" height="400">
 </body>
 </html>
-
