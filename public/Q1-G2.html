@@ -1,0 +1,25 @@
+<h1> Yuuna Jarme - 9-Sodium - Aug 11, 2025 </h1>
+
+<h2> Second Graded Exercise - First Quarter </h2>
+
+<p> Here's a list of my friends </p>
+<label for="in1">Friend 1 </label>
+<input id="in1" type="text" placeholder="Friend 1"> <br>
+<input id="in2" type="text" placeholder="Friend 2">
+<button onclick="addFriends()"> Add Friends </button>
+
+<div id="out1" style="border: 1px solid lightcoral; font-weight:bold;"></div>
+
+
+</div>
+
+<script>
+
+    function addFriends() {
+        friend1 = in1.value
+        friend2 = in2.value
+
+        out1.innerHTML += "<p>" + friend1 + "<p>";
+        out1.innerHTML += "<p>" + friend2 + "<p>";
+    }
+</script>
