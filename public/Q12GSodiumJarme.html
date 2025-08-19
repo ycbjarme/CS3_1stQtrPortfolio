@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-  <script>
-    function totalMeal() {
-      let mp = parseFloat(document.getElementById("mealPrice").value);
-      let tip = parseFloat(document.getElementById("tip").value);
-      let sc = parseFloat(document.getElementById("serviceCharge").value);
+    <script>
+        function totalMeal() {
+            let mp = parseFloat(document.getElementById("mealPrice").value);
+            let tip = parseFloat(document.getElementById("tip").value);
+            let sc = parseFloat(document.getElementById("serviceCharge").value);
 
-      let totalCost = mp + tip + (sc / 100 * mp);
+            let totalCost = mp + tip + (sc / 100 * mp);
 
-      document.getElementById("result").innerHTML =
-        "Total Meal: " + totalCost.toFixed(2);
-    }
-  </script>
+            document.getElementById("result").innerHTML = 
+                "Total Meal: " + totalCost.toFixed(2);
+        }
+    </script>
 </head>
 <body>
-  <h2>Q1 2nd Graded Exercise submitted by Yuuna Jarme of 9-Sodium</h2>
+    <h2>Q1 2nd Graded Exercise submitted by Yuuna Jarme of 9-Sodium</h2>  
 
-  <label for="mealPrice">Meal Price:</label>
-  <input type="text" id="mealPrice" value="119.00"><br><br>
+    <label for="mealPrice">Meal Price:</label>
+    <input type="text" id="mealPrice"><br><br>
 
-  <label for="tip">Tip:</label>
-  <input type="text" id="tip" value="20"><br><br>
+    <label for="tip">Tip:</label>
+    <input type="text" id="tip"><br><br>
 
-  <label for="serviceCharge">Service Charge (%):</label>
-  <input type="text" id="serviceCharge" value="12"><br><br>
+    <label for="serviceCharge">Service Charge (%):</label>
+    <input type="text" id="serviceCharge"><br><br>
 
-  <button onclick="totalMeal()">Accept Input</button>
+    <button onclick="totalMeal()">Accept Input</button>
 
-  <p id="result"></p>
+    <p id="result"></p>
 </body>
 </html>
+
