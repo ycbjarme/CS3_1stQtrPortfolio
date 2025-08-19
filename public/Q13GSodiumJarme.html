@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3rd Graded Exercise</title>
+  <script>
+    let dNumber = Math.floor(Math.random() * 100) + 1;
+
+    function checkIt() {
+      let userGuess = parseInt(document.getElementById("guess").value);
+
+      if (userGuess < dNumber) {
+        document.getElementById("result").innerHTML = "Higher";
+      } else if (userGuess > dNumber) {
+        document.getElementById("result").innerHTML = "Lower";
+      } else if (userGuess === dNumber) {
+        document.getElementById("result").innerHTML = "You are correct!";
+      } else {
+        document.getElementById("result").innerHTML = "Please enter a valid number.";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Q1 3rd Graded Exercise submitted by Yuuna Jarme of 9-Sodium</h2>
+
+  <p>Guess a number between 1 and 100:</p>
+  <input type="text" id="guess">
+  <button onclick="checkIt()">Check</button>
+
+  <p id="result"></p>
+</body>
+</html>
