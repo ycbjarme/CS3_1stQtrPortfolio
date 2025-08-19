@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+</head>
+<body>
+  <p id="result"></p>
+  <script>
+    let age = 1;           
+    let maxAge = 60;        
+    let numPerDay = 1;      
+
+    let totalRequired = (numPerDay * 365) * (maxAge - age);
+
+    document.getElementById("result").textContent =
+      "You will need " + totalRequired + " slices of cheesecake to last you until the ripe old age of " + maxAge + ".";
+  </script>
+</body>
+</html>
