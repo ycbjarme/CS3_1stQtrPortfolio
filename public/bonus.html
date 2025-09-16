@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess My Word</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #fdf6f9; 
+      color: #333;
+    }
+    h1 {
+      color: #a86ca3; 
+    }
+    #wordDisplay {
+      font-size: 24px;
+      letter-spacing: 6px;
+      margin: 20px 0;
+    }
+    #message {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    input, button {
+      padding: 6px 10px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #d8b4e2; 
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c49cd0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess My Word</h1>
+  <p id="wordDisplay"></p>
+  <input type="text" id="guessInput" maxlength="1">
+  <button onclick="makeGuess()">Guess</button>
+  <p id="message"></p>
+
+  <script>
+    const secretWord = ["y","o","u","t","h","f","u","l"," ","y","u","u","n","a"];
+
+    let guessedWord = secretWord.map(ch => ch === " " ? " " : "_");
+
+    function render() {
+      const display = guessedWord
+        .map(ch => ch === " " ? "&nbsp;&nbsp;&nbsp;" : ch) 
+        .join(" ");
+      document.getElementById("wordDisplay").innerHTML = display;
+    }
+
+    render(); 
+    function makeGuess() {
+      const guess = document.getElementById("guessInput").value.toLowerCase();
+      if (!guess) return; 
+      let correct = false;
+
+      for (let i = 0; i < secretWord.length; i++) {
+        if (secretWord[i] === guess) {
+          guessedWord[i] = guess;
+          correct = true;
+        }
+      }
+
+      document.getElementById("message").textContent = correct ? "✅ Correct!" : "❌ Try again.";
+      document.getElementById("guessInput").value = "";
+      render(); 
+    }
+
+    /*
+    Final Reflection Answers:
+    1. One thing I learned about loops this quarter is that they repeat code automatically so you don’t have to write the same thing many times.
+    2. Arrays make code more powerful because they can hold lots of values and work well with loops.
+    3. One feature I’d add if I had more time is a replay button and a seperate display for the guessed letters.
+    */
+  </script>
+</body>
+</html>
