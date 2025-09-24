@@ -1,6 +1,6 @@
-# Reflections for 1st Quarter SY 2025-2026
+# Q1 End of Lessons Reflections
 
-## 1. List and describe at least 5 topics that we discussed in class that you know very well. Each description should be at least 1 paragraph with three to five sentences.
+## 1. List and describe at least 5 topics that we discussed in class that you know very well. Each description should be at least 1 paragraph with two to five sentences.
 
 1. **Arithmetic Operators**  
    I understand arithmetic operators in JavaScript very well because they are similar to what I have already encountered in other languages like C++. We applied them in different problems such as solving equations, finding remainders, and doing calculations in loops. Practicing them repeatedly in VSCode helped me build confidence in their use.
