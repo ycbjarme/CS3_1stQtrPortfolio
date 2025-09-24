@@ -36,7 +36,7 @@
 ## 4. In the activities that were done in class, list at least two that you think were effective and at least two that you think were not effective in helping you understand topics in our course and why.
 
 1. **Effective Activities:**  
-   - Coding tasks we submitted on GitHub were very effective because they gave me direct practice in solving problems with JavaScript.  
+   - Coding tasks we submitted on GitHub were very effective because they gave me direct practice in solving problems in coding.
    - Quizzes and short assessments were also effective because they tested my understanding and showed me which topics I had mastered and which ones I still needed to review.  
 
 2. **Not Effective Activities:**  
