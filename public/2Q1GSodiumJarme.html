@@ -1,100 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Table with Border</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Class schedule for Friday showing subjects, breaks, and study periods.">
+    <title>Friday Schedule | School Timetable</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
     <style>
-        table, th, td {
+        body {
+            background-color: rgb(255, 199, 199);
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 10px;
+        }
+        nav {
+            background-color: rgb(226, 135, 135);
+            padding: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto 20px;
             border: 3px solid rgb(226, 135, 135);
             border-collapse: collapse;
         }
         th, td {
+            border: 3px solid rgb(226, 135, 135);
             padding: 10px;
             text-align: left;
         }
+        main {
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 2px solid rgb(226, 135, 135);
+            padding-top: 10px;
+            font-size: 14px;
+        }
+        iframe {
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
     </style>
-
-</head>
-<body style="background-color: rgb(255, 199, 199);">
-</body>
 </head>
 
 <body>
-    <h1 style="color: rgb(255, 255, 255);"> Friday</h1>
-    <table>
-        <tr>
-            <th style="color: rgb(255, 255, 255);"> Time </th>
-            <th style="color: rgb(255, 255, 255);"> Period </th>
-            <th style="color: rgb(255, 255, 255);"> Subject </th>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);">7:30 - 8:15 AM </td>
-            <td style="color: rgb(255, 255, 255);"> 1 </td>
-            <td style="color: rgb(255, 255, 255);" rowspan = "2"> Biology </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 8:15 - 9:00 AM </td>  
-            <td style="color: rgb(255, 255, 255);"> 2 </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 9:00 - 9:10 AM </td>
-            <td style="color: rgb(255, 255, 255);"> B </td>
-            <td style="color: rgb(255, 255, 255);"> Break </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 9:10 - 9:55 AM </td>
-            <td style="color: rgb(255, 255, 255);"> 3 </td>
-            <td style="color: rgb(255, 255, 255);"> Filipino </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 9:55 - 10:40 AM </td>
-            <td style="color: rgb(255, 255, 255);"> 4 </td>
-            <td style="color: rgb(255, 255, 255);"> Statistics </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 10:40 - 11:25 AM </td>
-            <td style="color: rgb(255, 255, 255);"> 5 </td>
-            <td style="color: rgb(255, 255, 255);"> Study Period </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 11:25 - 12:10 PM </td>
-            <td style="color: rgb(255, 255, 255);"> 6 </td>
-            <td style="color: rgb(255, 255, 255);"> Values Education </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 12:10 - 12:20 PM </td>
-            <td style="color: rgb(255, 255, 255);"> B </td>
-            <td style="color: rgb(255, 255, 255);"> Break </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 12:20 - 1:05 PM </td>
-            <td style="color: rgb(255, 255, 255);"> 7 </td>
-            <td style="color: rgb(255, 255, 255);"> Lunch </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 1:05 - 1:50 PM </td>
-            <td style="color: rgb(255, 255, 255);"> 8 </td>
-            <td style="color: rgb(255, 255, 255);"> Study Period </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 1:50 - 2:35 PM </td>
-            <td style="color: rgb(255, 255, 255);"> 9 </td>
-            <td style="color: rgb(255, 255, 255);"> Chemistry </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 2:35 - 2:45 PM </td>
-            <td style="color: rgb(255, 255, 255);"> B </td>
-            <td style="color: rgb(255, 255, 255);"> Break </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 2:45 - 3:30 PM </td>
-            <td style="color: rgb(255, 255, 255);"> 10 </td>
-            <td style="color: rgb(255, 255, 255);" rowspan = "2"> Physical Education </td>
-        </tr>
-        <tr>
-            <td style="color: rgb(255, 255, 255);"> 3:30 - 4:15 PM </td>
-            <td style="color: rgb(255, 255, 255);"> 11 </td>
-    </table>
-<img src = "https://tse3.mm.bing.net/th/id/OIP.KBD0UnOp3v1QENvE3RCGhgHaH1?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3">
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9pBrcK1N1-U?si=Hzs35vKHahDJWHeQ&amp;start=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <header>
+        <h1>School Schedule</h1>
+        <h2>Friday</h2>
+    </header>
+
+    <nav>
+        <a href="2Q1GNa.html">Na’s Page</a>
+        <a href="2Q1GSmith.html">Smith’s Page</a>
+        <a href="2Q1GRamos.html">Ramos’ Page</a>
+        <a href="2Q1GGarcia.html">Garcia’s Page</a>
+    </nav>
+
+    <main>
+        <h3>Friday Class Schedule</h3>
+        <p>This table shows the subjects and periods scheduled every Friday. Each class is organized by time, with breaks and study periods in between to give students time to rest and prepare for their next lessons.</p>
+
+        <p>Subjects like Biology and Physical Education span two periods, while breaks and lunch are distributed throughout the morning and afternoon to maintain a balanced learning schedule.</p>
+
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Period</th>
+                <th>Subject</th>
+            </tr>
+            <tr>
+                <td>7:30 - 8:15 AM</td>
+                <td>1</td>
+                <td rowspan="2">Biology</td>
+            </tr>
+            <tr>
+                <td>8:15 - 9:00 AM</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>9:00 - 9:10 AM</td>
+                <td>B</td>
+                <td>Break</td>
+            </tr>
+            <tr>
+                <td>9:10 - 9:55 AM</td>
+                <td>3</td>
+                <td>Filipino</td>
+            </tr>
+            <tr>
+                <td>9:55 - 10:40 AM</td>
+                <td>4</td>
+                <td>Statistics</td>
+            </tr>
+            <tr>
+                <td>10:40 - 11:25 AM</td>
+                <td>5</td>
+                <td>Study Period</td>
+            </tr>
+            <tr>
+                <td>11:25 - 12:10 PM</td>
+                <td>6</td>
+                <td>Values Education</td>
+            </tr>
+            <tr>
+                <td>12:10 - 12:20 PM</td>
+                <td>B</td>
+                <td>Break</td>
+            </tr>
+            <tr>
+                <td>12:20 - 1:05 PM</td>
+                <td>7</td>
+                <td>Lunch</td>
+            </tr>
+            <tr>
+                <td>1:05 - 1:50 PM</td>
+                <td>8</td>
+                <td>Study Period</td>
+            </tr>
+            <tr>
+                <td>1:50 - 2:35 PM</td>
+                <td>9</td>
+                <td>Chemistry</td>
+            </tr>
+            <tr>
+                <td>2:35 - 2:45 PM</td>
+                <td>B</td>
+                <td>Break</td>
+            </tr>
+            <tr>
+                <td>2:45 - 3:30 PM</td>
+                <td>10</td>
+                <td rowspan="2">Physical Education</td>
+            </tr>
+            <tr>
+                <td>3:30 - 4:15 PM</td>
+                <td>11</td>
+            </tr>
+        </table>
+
+        <img src="https://tse3.mm.bing.net/th/id/OIP.KBD0UnOp3v1QENvE3RCGhgHaH1?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Students in classroom">
+
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9pBrcK1N1-U?si=Hzs35vKHahDJWHeQ&amp;start=2" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Na. All rights reserved.</p>
+        <p>References:</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>Department of Education. (2023). <i>Sample Daily Class Schedule</i>. https://www.deped.gov.ph/</li>
+        </ul>
+    </footer>
 </body>
 </html>
