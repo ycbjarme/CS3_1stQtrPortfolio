@@ -1,19 +1,18 @@
-/* General page styling */
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #dfe9f3, #ffffff);
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom, #ffe5ec, #ffd6e0);
   margin: 0;
   padding: 0;
+  color: #4a4a4a;
 }
 
-/* Header section */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #005f73;
+  background-color: #ff8fab;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 25px;
 }
 
 .logo {
@@ -21,42 +20,67 @@ header {
   height: 50px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
+h1 {
+  font-size: 28px;
+  margin: 0;
 }
 
-nav a:hover {
-  color: #ffb703;
+nav a {
+  color: white;
+  background-color: #ffb3c6;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  margin: 0 6px;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
 nav a:visited {
-  color: #d6ccc2;
+  color: #ffe5ec;
 }
 
-/* Content layout */
-main {
-  padding: 20px;
+nav a:hover {
+  background-color: #ffccd5;
+  color: #fff0f3;
 }
 
 .intro {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff0f3;
+  margin: 30px auto;
+  padding: 20px;
+  width: 80%;
+  border-radius: 10px;
+  border: 2px solid #ffb3c6;
 }
 
 .float-img {
   float: left;
   width: 200px;
-  margin-right: 15px;
-  border-radius: 8px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 3px solid #ff8fab;
+}
+
+.intro p {
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .content {
-  margin-top: 20px;
-  background-color: #f1f5f9;
-  padding: 15px;
-  border-radius: 10px;
+  text-align: center;
+  margin: 30px auto;
+  background-color: #ffe5ec;
+  padding: 25px;
+  width: 75%;
+  border-radius: 12px;
+  border: 2px solid #ffb3c6;
+}
+
+h2 {
+  color: #ff4d6d;
 }
