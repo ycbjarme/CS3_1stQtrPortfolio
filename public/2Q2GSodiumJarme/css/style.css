@@ -1,0 +1,103 @@
+/* --- General Style --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #faf5ff, #f3e8ff);
+    color: #333;
+}
+
+/* --- Header --- */
+header {
+    background-color: #4c1d95;
+    color: white;
+    padding: 20px 0;
+}
+
+.header-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* --- Navigation --- */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* link states */
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+nav ul li a:visited {
+    color: #d8b4fe;
+}
+
+/* --- Main --- */
+main {
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* --- Intro Section --- */
+.intro {
+    text-align: center;
+}
+
+/* --- Flex Section (image + text) --- */
+.media-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.media-container img {
+    width: 250px;
+    border-radius: 8px;
+    float: left;
+}
+
+/* --- Table --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #e9d5ff;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #4c1d95;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+}
