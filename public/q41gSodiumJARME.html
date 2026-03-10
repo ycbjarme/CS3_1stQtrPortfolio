@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q4 Exercise 1 - Movie CRUD</title>
     <style>
-        /* CSS Implementation for Aesthetically Pleasing UI */
+    
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7f6;
@@ -41,10 +41,10 @@
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 6px;
-            box-sizing: border-box; /* Ensures padding doesn't break width */
+            box-sizing: border-box; 
         }
 
-        /* Star Rating Styles */
+   
         .star-rating {
             font-size: 30px;
             cursor: pointer;
@@ -57,7 +57,7 @@
         }
 
         .star.selected {
-            color: #ffcc00; /* Yellow stars */
+            color: #ffcc00; 
         }
 
         button {
@@ -77,7 +77,7 @@
 
         hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; }
 
-        /* Movie List Styles */
+        
         .movie-item {
             background: #f9f9f9;
             border: 1px solid #eee;
@@ -133,13 +133,13 @@
     </div>
 
     <script>
-        // Global variable to track the selected rating
+      
         let selectedRating = 0;
         const stars = document.querySelectorAll('.star');
         const movieForm = document.getElementById('movieForm');
         const movieList = document.getElementById('movieList');
 
-        // 1. Star Selection Logic
+    
         stars.forEach(star => {
             star.addEventListener('click', () => {
                 selectedRating = star.getAttribute('data-value');
@@ -157,11 +157,11 @@
             });
         }
 
-        // 2. Create Operation: Saving to localStorage
+   
         movieForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Create the JS Object structure shown in your instructions
+        
             const movieObject = {
                 title: document.getElementById('title').value,
                 year: document.getElementById('year').value,
@@ -169,30 +169,30 @@
                 rating: selectedRating
             };
 
-            // Retrieve existing data, parse it, add new object, then stringify back to localStorage
+      
             let storedMovies = JSON.parse(localStorage.getItem('movies')) || [];
             storedMovies.push(movieObject);
             localStorage.setItem('movies', JSON.stringify(storedMovies));
 
-            // Reset form for next entry
+     
             movieForm.reset();
             selectedRating = 0;
             updateStars(0);
 
-            // Refresh the display
+       
             renderMovies();
         });
 
-        // 3. Read Operation: Displaying from localStorage
+     
         function renderMovies() {
             const storedMovies = JSON.parse(localStorage.getItem('movies')) || [];
-            movieList.innerHTML = ''; // Clear current display
+            movieList.innerHTML = ''; 
 
             storedMovies.forEach(movie => {
                 const item = document.createElement('div');
                 item.className = 'movie-item';
                 
-                // Generate yellow stars for the list display
+              
                 let starDisplay = '';
                 for(let i=1; i<=5; i++) {
                     starDisplay += `<span style="color: ${i <= movie.rating ? '#ffcc00' : '#ccc'}">★</span>`;
@@ -205,7 +205,7 @@
             });
         }
 
-        // Initial render on page load
+
         renderMovies();
     </script>
 </body>
