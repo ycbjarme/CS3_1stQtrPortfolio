@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Exercise 1 - Movie CRUD</title>
+    <style>
+        /* CSS Implementation for Aesthetically Pleasing UI */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
 
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 { color: #333; margin-bottom: 20px; }
+
+        form { text-align: left; }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: #444;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+        }
+
+        /* Star Rating Styles */
+        .star-rating {
+            font-size: 30px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            color: #ccc;
+            transition: color 0.2s;
+        }
+
+        .star.selected {
+            color: #ffcc00; /* Yellow stars */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover { background-color: #0056b3; }
+
+        hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; }
+
+        /* Movie List Styles */
+        .movie-item {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .list-stars { color: #ffcc00; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Add a Movie</h2>
+        
+        <form id="movieForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" placeholder="Enter movie title" required>
+
+            <label for="year">Year:</label>
+            <input type="number" id="year" placeholder="e.g. 2024" required>
+
+            <label for="genre">Genre:</label>
+            <select id="genre">
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horror">Horror</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+            </select>
+
+            <label>Rating:</label>
+            <div id="starContainer" class="star-rating">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+
+            <button type="submit">Add Movie</button>
+        </form>
+
+        <hr>
+
+        <h2>Movie List</h2>
+        <div id="movieList">
+            </div>
+    </div>
+
+    <script>
+        // Global variable to track the selected rating
+        let selectedRating = 0;
+        const stars = document.querySelectorAll('.star');
+        const movieForm = document.getElementById('movieForm');
+        const movieList = document.getElementById('movieList');
+
+        // 1. Star Selection Logic
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = star.getAttribute('data-value');
+                updateStars(selectedRating);
+            });
+        });
+
+        function updateStars(rating) {
+            stars.forEach(s => {
+                if (s.getAttribute('data-value') <= rating) {
+                    s.classList.add('selected');
+                } else {
+                    s.classList.remove('selected');
+                }
+            });
+        }
+
+        // 2. Create Operation: Saving to localStorage
+        movieForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Create the JS Object structure shown in your instructions
+            const movieObject = {
+                title: document.getElementById('title').value,
+                year: document.getElementById('year').value,
+                genre: document.getElementById('genre').value,
+                rating: selectedRating
+            };
+
+            // Retrieve existing data, parse it, add new object, then stringify back to localStorage
+            let storedMovies = JSON.parse(localStorage.getItem('movies')) || [];
+            storedMovies.push(movieObject);
+            localStorage.setItem('movies', JSON.stringify(storedMovies));
+
+            // Reset form for next entry
+            movieForm.reset();
+            selectedRating = 0;
+            updateStars(0);
+
+            // Refresh the display
+            renderMovies();
+        });
+
+        // 3. Read Operation: Displaying from localStorage
+        function renderMovies() {
+            const storedMovies = JSON.parse(localStorage.getItem('movies')) || [];
+            movieList.innerHTML = ''; // Clear current display
+
+            storedMovies.forEach(movie => {
+                const item = document.createElement('div');
+                item.className = 'movie-item';
+                
+                // Generate yellow stars for the list display
+                let starDisplay = '';
+                for(let i=1; i<=5; i++) {
+                    starDisplay += `<span style="color: ${i <= movie.rating ? '#ffcc00' : '#ccc'}">★</span>`;
+                }
+
+                item.innerHTML = `
+                    <strong>${movie.title} (${movie.year})</strong> - ${movie.genre}, Rating: ${starDisplay}
+                `;
+                movieList.appendChild(item);
+            });
+        }
+
+        // Initial render on page load
+        renderMovies();
+    </script>
+</body>
+</html>
