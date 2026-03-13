@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q4 Exercise 1 - Movie CRUD</title>
+    <title>Q4 Exercise 1 - Movie CRUD (Updated)</title>
     <style>
-    
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7f6;
@@ -25,7 +24,6 @@
         }
 
         h2 { color: #333; margin-bottom: 20px; }
-
         form { text-align: left; }
 
         label {
@@ -44,7 +42,6 @@
             box-sizing: border-box; 
         }
 
-   
         .star-rating {
             font-size: 30px;
             cursor: pointer;
@@ -75,9 +72,19 @@
 
         button:hover { background-color: #0056b3; }
 
+        .delete-btn {
+            background-color: #dc3545;
+            width: auto;
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .delete-btn:hover { background-color: #a71d2a; }
+
         hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; }
 
-        
         .movie-item {
             background: #f9f9f9;
             border: 1px solid #eee;
@@ -86,6 +93,9 @@
             border-radius: 8px;
             text-align: left;
             font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .list-stars { color: #ffcc00; }
@@ -94,7 +104,7 @@
 <body>
 
     <div class="container">
-        <h2>Add a Movie</h2>
+        <h2>Add/Update a Movie</h2>
         
         <form id="movieForm">
             <label for="title">Title:</label>
@@ -122,89 +132,120 @@
                 <span class="star" data-value="5">★</span>
             </div>
 
-            <button type="submit">Add Movie</button>
+            <button type="submit">Submit Movie</button>
         </form>
 
         <hr>
 
         <h2>Movie List</h2>
-        <div id="movieList">
-            </div>
+        <div id="movieList"></div>
     </div>
 
     <script>
-      
         let selectedRating = 0;
         const stars = document.querySelectorAll('.star');
         const movieForm = document.getElementById('movieForm');
         const movieList = document.getElementById('movieList');
 
-    
+
         stars.forEach(star => {
             star.addEventListener('click', () => {
-                selectedRating = star.getAttribute('data-value');
+                selectedRating = parseInt(star.getAttribute('data-value'));
                 updateStars(selectedRating);
             });
         });
 
         function updateStars(rating) {
             stars.forEach(s => {
-                if (s.getAttribute('data-value') <= rating) {
-                    s.classList.add('selected');
-                } else {
-                    s.classList.remove('selected');
-                }
+                s.classList.toggle('selected', s.getAttribute('data-value') <= rating);
             });
         }
 
-   
+
         movieForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-        
-            const movieObject = {
-                title: document.getElementById('title').value,
-                year: document.getElementById('year').value,
-                genre: document.getElementById('genre').value,
-                rating: selectedRating
-            };
+            const titleInput = document.getElementById('title').value.trim();
+            const yearInput = document.getElementById('year').value;
+            const genreInput = document.getElementById('genre').value;
+            const ratingInput = selectedRating || 0;
 
-      
             let storedMovies = JSON.parse(localStorage.getItem('movies')) || [];
-            storedMovies.push(movieObject);
-            localStorage.setItem('movies', JSON.stringify(storedMovies));
+            
+    
+            const existingIndex = storedMovies.findIndex(m => m.title.toLowerCase() === titleInput.toLowerCase());
 
-     
+            if (existingIndex !== -1) {
+          
+                const existingMovie = storedMovies[existingIndex];
+                
+        
+                const newAverage = (parseFloat(existingMovie.rating) + ratingInput) / 2;
+                
+                storedMovies[existingIndex] = {
+                    title: existingMovie.title, 
+                    year: yearInput,
+                    genre: genreInput,
+                    rating: newAverage.toFixed(1) 
+                };
+            } else {
+ 
+                storedMovies.push({
+                    title: titleInput,
+                    year: yearInput,
+                    genre: genreInput,
+                    rating: ratingInput
+                });
+            }
+
+            localStorage.setItem('movies', JSON.stringify(storedMovies));
+            
+
             movieForm.reset();
             selectedRating = 0;
             updateStars(0);
-
-       
             renderMovies();
         });
 
-     
+
+        function deleteMovie(index) {
+            const storedMovies = JSON.parse(localStorage.getItem('movies')) || [];
+            const movieTitle = storedMovies[index].title;
+
+            if (confirm(`Are you sure you want to delete "${movieTitle}"?`)) {
+                storedMovies.splice(index, 1);
+                localStorage.setItem('movies', JSON.stringify(storedMovies));
+                renderMovies(); 
+            }
+        }
+
+
         function renderMovies() {
             const storedMovies = JSON.parse(localStorage.getItem('movies')) || [];
             movieList.innerHTML = ''; 
 
-            storedMovies.forEach(movie => {
+            storedMovies.forEach((movie, index) => {
                 const item = document.createElement('div');
                 item.className = 'movie-item';
                 
-              
+
                 let starDisplay = '';
                 for(let i=1; i<=5; i++) {
-                    starDisplay += `<span style="color: ${i <= movie.rating ? '#ffcc00' : '#ccc'}">★</span>`;
+                    
+                    const color = i <= Math.round(movie.rating) ? '#ffcc00' : '#ccc';
+                    starDisplay += `<span style="color: ${color}">★</span>`;
                 }
 
                 item.innerHTML = `
-                    <strong>${movie.title} (${movie.year})</strong> - ${movie.genre}, Rating: ${starDisplay}
+                    <div>
+                        <strong>${movie.title} (${movie.year})</strong><br>
+                        <small>${movie.genre} | Avg Rating: ${movie.rating}</small> ${starDisplay}
+                    </div>
+                    <button class="delete-btn" onclick="deleteMovie(${index})">Delete</button>
                 `;
                 movieList.appendChild(item);
             });
         }
-
 
         renderMovies();
     </script>
