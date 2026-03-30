@@ -1,8 +1,8 @@
-### Step 1 (Static vs Relative)
-#### Question: What changed compared to the default static positioning?
+## Step 1 (Static vs Relative)
+### Question: What changed compared to the default static positioning?
 In static positioning, elements follow the normal document flow. By using position: relative, the sidebar stays in its original spot in the flow, but I can now shift it from that position using top and left offsets. It now overlaps other elements if the offset is large enough.
 
-### Step 2 (Fixed)
+## Step 2 (Fixed)
 ### Question: What happens when you scroll the page? Why does the footer behave differently from position relative?
 When scrolling, the footer stays pinned to the bottom of the browser window (viewport). It behaves differently because position: fixed removes the element from the normal document flow entirely and anchors it to the window edges, whereas relative positioning anchors the element to its original spot in the document.
 
