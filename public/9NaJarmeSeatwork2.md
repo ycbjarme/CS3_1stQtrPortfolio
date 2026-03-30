@@ -1,5 +1,5 @@
-## Step 1 (Static vs Relative)
-### Question: What changed compared to the default static positioning?
+### Step 1 (Static vs Relative)
+#### Question: What changed compared to the default static positioning?
 In static positioning, elements follow the normal document flow. By using position: relative, the sidebar stays in its original spot in the flow, but I can now shift it from that position using top and left offsets. It now overlaps other elements if the offset is large enough.
 
 ## Step 2 (Fixed)
