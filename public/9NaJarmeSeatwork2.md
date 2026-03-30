@@ -1,18 +1,18 @@
 # Step 1 (Static vs Relative)
 ## Question: What changed compared to the default static positioning?
-### Answer: In static positioning, elements follow the normal document flow. By using position: relative, the sidebar stays in its original spot in the flow, but I can now shift it from that position using top and left offsets. It now overlaps other elements if the offset is large enough.
+In static positioning, elements follow the normal document flow. By using position: relative, the sidebar stays in its original spot in the flow, but I can now shift it from that position using top and left offsets. It now overlaps other elements if the offset is large enough.
 
 # Step 2 (Fixed)
 ## Question: What happens when you scroll the page? Why does the footer behave differently from position relative?
-### Answer: When scrolling, the footer stays pinned to the bottom of the browser window (viewport). It behaves differently because position: fixed removes the element from the normal document flow entirely and anchors it to the window edges, whereas relative positioning anchors the element to its original spot in the document.
+When scrolling, the footer stays pinned to the bottom of the browser window (viewport). It behaves differently because position: fixed removes the element from the normal document flow entirely and anchors it to the window edges, whereas relative positioning anchors the element to its original spot in the document.
 
 # Step 3 (Absolute)
 ## Question: What is the effect of position: absolute on an element? How is it different from fixed?
-### Answer: position: absolute removes the element from the normal document flow, meaning other elements do not "see" it and collapse the space it left behind. It is positioned relative to its nearest positioned ancestor. The main difference from fixed is that absolute will scroll away with the rest of the page content, while fixed stays anchored to the screen.
+position: absolute removes the element from the normal document flow, meaning other elements do not "see" it and collapse the space it left behind. It is positioned relative to its nearest positioned ancestor. The main difference from fixed is that absolute will scroll away with the rest of the page content, while fixed stays anchored to the screen.
 
 # Step 4 (Absolute & z-index)
-## Question: Why does the notice appear on top of the content? What happens if you swap the z-index values?
-### Answer: The .notice appears on top because it has a higher z-index (2) compared to the .content (1). z-index determines the stack order along the z-axis (depth). If I swap them, the .content box will cover the .notice box.
+## Quesrion: Why does the notice appear on top of the content? What happens if you swap the z-index values?
+The .notice appears on top because it has a higher z-index (2) compared to the .content (1). z-index determines the stack order along the z-axis (depth). If I swap them, the .content box will cover the .notice box.
 
 # Challenge Answers
 
