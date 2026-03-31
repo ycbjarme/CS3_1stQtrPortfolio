@@ -1,1 +1,36 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Error Logs - Yuuna Jarme</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    table { width: 90%; margin: 20px auto; border-collapse: collapse; }
+    th, td { padding: 10px; border: 1px solid #333; }
+    .rColor { background-color: navy; color: white; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+    <h1 style="padding: 30px">Error Logs - Yuuna Jarme / 9-Raymundo</h1>
+  </header>
+  <table> 
+    <tr class="rColor">
+      <th> item# </th> <th> code line# / Type </th> <th> Description </th> <th> Correction Done </th>
+    </tr>
+    <tr><td>1</td><td>JS: Line 1</td><td>plotPoint() missing parameters.</td><td>Added (x0, y0, x, y) to function.</td></tr>
+    <tr><td>2</td><td>JS: Line 10</td><td>Used styleleft instead of style.left.</td><td>Corrected to point.style.left.</td></tr>
+    <tr><td>3</td><td>JS: Line 11</td><td>Used stylebottom instead of style.bottom.</td><td>Corrected to point.style.bottom.</td></tr>
+    <tr><td>4</td><td>CSS: Line 49</td><td>.point class missing position: absolute.</td><td>Added position: absolute.</td></tr>
+    <tr><td>5</td><td>CSS: Line 25</td><td>nav a was display: block (stacked).</td><td>Changed to display: inline-block.</td></tr>
+    <tr><td>6</td><td>CSS: Line 16</td><td>nav missing position: fixed.</td><td>Added position: fixed to stick to top.</td></tr>
+    <tr><td>7</td><td>CSS: Line 34</td><td>Space in nav a :hover broke trigger.</td><td>Removed space (nav a:hover).</td></tr>
+    <tr><td>8</td><td>CSS: Line 69</td><td>Sprite path missing images/ folder.</td><td>Updated path to images/sprites.png.</td></tr>
+    <tr><td>9</td><td>JS: Logic</td><td>Missing "divisa" check.</td><td>Added check for x===x0 or y===y0.</td></tr>
+    <tr><td>10</td><td>HTML: Line 7</td><td>Placeholder author name.</td><td>Updated meta author to Yuuna Jarme.</td></tr>
+  </table>
+</body>
+</html>
